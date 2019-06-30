@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		textarea {
+			width: 800px;
+			height: 300px; 
+		}
+	</style>
+	<textarea onchange="go()" id = "url"></textarea>
+
+	<script>
+		function go() {
+			var value = document.getElementById("url").value;
+			var list = value.split(","),
+				listClon = [];
+			document.getElementById("url").value = "";	
+			for (var i = 0; i < list.length; i++) {
+				
+
+				var x = new RegExp("http://");
+				if (x.test(list[i])) {
+					listClon[i] = list[i].replace("http://", "");
+				}else {
+					listClon[i] = list[i].replace("https://", "");
+				}
+				listClon[i] += "\n";
+				
+			}
+			listClon.sort();
+			document.getElementById("url").value =  listClon.toString();
+		}
+		//https://translate.google.com.ua,https://www.w3schools.com,https://developer.mozilla.org,http://ex-fs.net
+
+	</script>
+
+	
+</body>
+</html>

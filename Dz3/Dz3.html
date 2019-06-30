@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		var B = document.getElementById("box"),
+		  	BrEvent = 1,
+		  	BrN = 0;
+		for (var i = 0; i <50; i++) {
+			BrN++;
+			var E = document.createElement("div"),
+				T =	document.createTextNode("*");
+			E.appendChild(T);	
+			B.appendChild(E);
+			if (BrEvent==BrN) {
+				BrEvent += 1;
+				var Br = document.createElement("br");
+				B.appendChild(Br);
+				BrN = 0;
+			}
+			
+			
+			E.style.display = "inline-block";
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		#znak {
+			width:211px;
+			text-align:center;
+			background-color:red;
+			margin-top:10px;
+		}
+	</style>
+	<input type="text" id="Date">
+	<button onclick="jmg()">Go</button><br>
+	<div id="znak"></div>
+	<img src="" alt="" id="img" width="211px" height="155px">
+	<script type="text/javascript">
+		function jmg() {
+			var date = new Date(document.getElementById("Date").value);
+			
+			if (date.getMonth()==2 && date.getDate()>20 || date.getMonth()==3 && date.getDate()<21) {
+				document.getElementById("img").src = "img/овен";
+				document.getElementById("znak").innerHTML = "Овен";
+			}
+			if (date.getMonth()==3 && date.getDate()>20 || date.getMonth()==4 && date.getDate()<21) {
+				document.getElementById("img").src = "img/телец";
+				document.getElementById("znak").innerHTML = "Телец";
+			}
+			if (date.getMonth()==4 && date.getDate()>20 || date.getMonth()==5 && date.getDate()<21) {
+				document.getElementById("img").src = "img/близнецы";
+				document.getElementById("znak").innerHTML = "Близнецы";
+			}
+			if (date.getMonth()==5 && date.getDate()>20 || date.getMonth()==6 && date.getDate()<21) {
+				document.getElementById("img").src = "img/рак";
+				document.getElementById("znak").innerHTML = "Рак";
+			}
+			if (date.getMonth()==6 && date.getDate()>20 || date.getMonth()==7 && date.getDate()<21) {
+				document.getElementById("img").src = "img/лев";
+				document.getElementById("znak").innerHTML = "Лев";
+			}
+			if (date.getMonth()==7 && date.getDate()>20 || date.getMonth()==8 && date.getDate()<21) {
+				document.getElementById("img").src = "img/дева";
+				document.getElementById("znak").innerHTML = "Дева";
+			}
+			if (date.getMonth()==8 && date.getDate()>20 || date.getMonth()==9 && date.getDate()<21) {
+				document.getElementById("img").src = "img/весы";
+				document.getElementById("znak").innerHTML = "Весы";
+			}
+			if (date.getMonth()==9 && date.getDate()>20 || date.getMonth()==10 && date.getDate()<21) {
+				document.getElementById("img").src = "img/скорпион";
+				document.getElementById("znak").innerHTML = "Скорпион";
+			}
+			if (date.getMonth()==10 && date.getDate()>20 || date.getMonth()==11 && date.getDate()<21) {
+				document.getElementById("img").src = "img/стрелец";
+				document.getElementById("znak").innerHTML = "Стрелец";
+			}
+			if (date.getMonth()==11 && date.getDate()>20 || date.getMonth()==0 && date.getDate()<21) {
+				document.getElementById("img").src = "img/козерог";
+				document.getElementById("znak").innerHTML = "Козерог";
+			}
+			if (date.getMonth()==0 && date.getDate()>20 || date.getMonth()==1 && date.getDate()<21) {
+				document.getElementById("img").src = "img/водолей";
+				document.getElementById("znak").innerHTML = "Водолей";
+			}
+			if (date.getMonth()==1 && date.getDate()>20 || date.getMonth()==2 && date.getDate()<21) {
+				document.getElementById("img").src = "img/рыбы";
+				document.getElementById("znak").innerHTML = "Рыбы";
+			}						
+
+
+												
+
+		}
+	</script>
+	
+</body>
+</html>

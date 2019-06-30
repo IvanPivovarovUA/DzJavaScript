@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		input,p {
+			display: inline-block;
+		}
+
+	</style>
+	<input type="" id="1Number">
+	<p>+</p>
+	<input type="" id="2Number">
+	<p>=</p>
+	<p id="sum">0</p>
+	<br>
+	<button onclick="sum()">SUM</button>
+	<script>
+		function sum() {
+			
+			var S = Number(document.getElementById("1Number").value) +
+					Number(document.getElementById("2Number").value); 
+			if (!isNaN(S)) {
+				if (S>-1001 && S<1001) {
+					document.getElementById("sum").innerHTML = S;
+				}else {
+	                document.getElementById("sum").innerHTML = "Sum < -1000 or Sum > 1000";
+				}
+			}else {
+				document.getElementById("sum").innerHTML = "Один з додатків не коректно записаний";
+			}	
+
+			
+		}
+	</script>	
+</body>
+</html>

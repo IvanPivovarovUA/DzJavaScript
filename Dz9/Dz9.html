@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		label, div ,h4{
+			display: inline-block;
+			margin:5px 0px;
+		}
+		h4 ,div{
+			width: 300px;
+			text-align: center;
+		}
+		button {
+			margin-top:4px;
+			width: 173px;
+			height: 30px;
+		}
+
+	</style>
+	<input type="text" id="part"> <h4>Количество подъездов</h4> <br>
+	<input type="text" id="apartment"> <h4>Количество квартир на пролете</h4> <div></div><br>
+	<input type="text" id="floor"> <h4>Количество этожей дома</h4> <br>
+	<input type="text" id="YA"> <h4>Ваша квартира</h4> 
+	<br><button onclick="go()">Go</button> <div id="yorPart"></div> 
+
+	<script type="text/javascript">
+		function go() {
+			var info = {
+				apartment: Number(document.getElementById("apartment").value),
+				floor: Number(document.getElementById("floor").value),
+				partApartments: Number(document.getElementById("part").value)
+			};
+			
+			var yourApartment = Number(document.getElementById("YA").value);
+			
+			info.partApartments = Math.ceil((Math.ceil(yourApartment / info.apartment))/info.floor);
+			
+			info.floor = (Math.ceil(yourApartment / info.apartment)) - ((info.partApartments - 1) * info.floor);
+			//alert(3);
+			//document.getElementById("yorFloor").innerHTML = ;
+			document.getElementById("yorPart").innerHTML = " Твой подъезд: " + info.floor + " Твой этаж: " + info.partApartments;
+
+			//alert("floor="+info.floor+"<>"+"part "+info.partApartments);
+
+
+
+		} 
+	</script>
+	
+	
+</body>
+</html>

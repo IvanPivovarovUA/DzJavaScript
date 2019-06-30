@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		input,p {
+			display: inline-block;
+		}
+
+	</style>
+	<input type="" id="1Number">
+	<p>+</p>
+	<input type="" id="2Number">
+	<p>=</p>
+	<p id="sum">0</p>
+	<br>
+	<button onclick="sum()">SUM</button>
+	<script>
+		function plus(x) {
+			V = x;
+			Number(V);
+			V = Math.abs(V);
+			V = V.toString();
+			typeof V;
+	
+		}
+		var V;
+		var S = 0;
+		function sum() {
+			
+			
+			if (!isNaN(Number(document.getElementById("1Number").value)) && !isNaN(Number(document.getElementById("2Number").value)) ) {
+				
+				
+				plus(document.getElementById("1Number").value);
+
+			 
+				if (V.search("2")==0 || V.search("3")==0 || V.search("7")==0) {
+					S += Number(document.getElementById("1Number").value);
+				}
+
+				plus(document.getElementById("2Number").value);
+				
+				if (V.search("2")==0 || V.search("3")==0 || V.search("7")==0) {
+					S += Number(document.getElementById("2Number").value);
+				}
+		
+				if (S>-1001 && S<1001) {
+					document.getElementById("sum").innerHTML = S;
+				}else {
+	                document.getElementById("sum").innerHTML = "Sum < -1000 or Sum > 1000";
+				}
+
+				if (S == 0) {
+					document.getElementById("sum").innerHTML = "Жодне з чисел не закінчуєтся 2,3 або 7";
+				}
+
+			}else {
+				document.getElementById("sum").innerHTML = "Один з додатків не коректно записаний";
+			}
+
+
+			
+		}
+	</script>	
+</body>
+</html>

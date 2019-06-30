@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="year">
+	<button onclick="go()">Do</button>
+	<div id="line"></div>
+	<script type="text/javascript">
+		function go() {
+			var line = document.getElementById("year").value;
+			if (!isNaN(line)) {
+				if (line>145) {
+					document.getElementById("line").innerHTML  = "Поздравляю вы самый старый человек в мире. Вам " +line + " лет";
+				}else {
+					if (line<0) {
+						document.getElementById("line").innerHTML  = "Вы еще не родились. Вас не существует";
+					}else {
+						if (line<20) {
+							document.getElementById("line").innerHTML  = line + " года";
+						}else {
+							document.getElementById("line").innerHTML  = line + " лет";
+						}
+					}
+
+				}
+			}else {
+				document.getElementById("line").innerHTML  = "Error!";
+			}
+
+
+			
+		}
+
+	</script>
+	
+</body>
+</html>

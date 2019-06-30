@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="1Date">
+	<input type="text" id="2Date">
+	<button onclick="go()">Do</button>
+	<div id="result"></div>
+	<script type="text/javascript">
+		function go() {
+			var  Date1 = new Date(document.getElementById("1Date").value),
+				 Date2 = new Date(document.getElementById("2Date").value);
+
+			var	 time = {
+				 	seconds: (Date2.getSeconds() + Date2.getMinutes() * 60 +
+				 			Date2.getHours() * 3600 + Date2.getDate() * 86400 + //*60*60=1200/  *60*60*24=86400
+				 			 Date2.getFullYear() * 31536000)//86400*30=2 592 000/ 86400 
+				 							-
+				 			 (Date1.getSeconds() + Date1.getMinutes() * 60 +
+				 			Date1.getHours() * 3600 + Date1.getDate() * 86400 + 
+				 			 Date1.getFullYear() * 31536000),
+
+				 	minutes:0,
+				 	hours:0,
+				 	day:0,
+				 	month:0,
+				 	year:0
+				 	
+				 };
+
+			function month(x) {
+				var T = 0;
+				for (var i = 0; i < x.getMonth(); i++) {
+					if (i==0 || i==2 || i==4 || i==6 || i==7 || i==9 || i==11) {
+						T += 31;
+					}
+					if (i==1) {
+						T +=28;
+					}
+					if (i==3 || i==5 || i==8 || i==10) {
+						T +=30;
+					}
+
+				}
+				if (x==Date1) {
+					time.seconds += T*86400;
+					
+				}
+
+				if (x==Date2) {
+					time.seconds -= T*86400;
+					
+				}
+				
+			}
+			month(Date1);
+			month(Date2);
+					 
+
+
+			time.seconds = Math.abs(time.seconds);
+			//alert(Date2.getMonth() * 30*24*60*60*60);
+			//alert(Date1.getMonth()+"<>"+Date2.getMonth());
+
+
+			if (time.seconds>59) {
+				time.minutes = Math.trunc(time.seconds / 60);
+				time.seconds = time.seconds - (time.minutes * 60);
+			}
+			if (time.seconds<10) {
+				time.seconds.toString();
+				time.seconds = "0" + time.seconds;
+			}
+			//alert(time.seconds);
+
+
+
+			if (time.minutes>59) {
+				time.hours = Math.trunc(time.minutes / 60);
+				time.minutes = time.minutes - (time.hours * 60);
+			}
+			if (time.minutes<10) {
+				time.minutes.toString();
+				time.minutes = "0" + time.minutes;
+			}
+			//alert(time.minutes);
+
+
+
+			if (time.hours>23) {
+				time.day = Math.trunc(time.hours / 24);
+				time.hours = time.hours - (time.day * 24);
+			}
+			if (time.hours<10) {
+				time.hours.toString();
+				time.hours = "0" + time.hours;
+			}
+			//alert(time.hours);
+			var y=1;
+			for (var i = time.month; y!=0;) {
+				y=0;
+				if (i==0 || i==2 || i==4 || i==6 || i==7 || i==9 || i==11) {
+					if (time.day>30) {
+						time.day -= 31;
+						time.month++;
+						y++;
+						i++;
+						//alert(1);
+					}
+					
+				}
+				if (i==1) {
+					if (time.day>27) {
+						time.day -= 28;
+						time.month++;;
+						y++;
+						i++;
+						//alert(2);
+					}
+					
+				}
+				if (i==3 || i==5 || i==8 || i==10) {
+					if (time.day>29) {
+						time.day -= 30;
+						time.month++;;
+						y++;
+						i++;
+						//alert(3);
+					}
+					
+				}
+				if (i==12) {
+					i=0;
+				}
+				
+
+
+			}
+
+			//if (time.day>29) {
+				//time.month = Math.trunc(time.day / 30);
+				//time.day = time.day - (time.month * 30);
+			//}
+			if (time.day<10) {
+				time.day.toString();
+				time.day = "0" + time.day;
+			}
+			//alert(time.day);
+
+
+			if (time.month>11) {
+				time.year = Math.trunc(time.month / 12);
+				time.month = time.month - (time.year * 12);
+			}
+
+			if (time.month<10) {
+				time.month.toString();
+				time.month = "0" + time.month;
+			}
+
+			document.getElementById("result").innerHTML = time.year + " года, " + time.month +  " месяц, " 
+			+ time.day + " день, " + time.hours + " часов, " + time.minutes + " минут, " + time.seconds + " секунд."; 
+
+		}
+	</script>
+</body>
+</html>

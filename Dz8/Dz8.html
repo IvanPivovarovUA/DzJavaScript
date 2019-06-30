@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		p {
+			width: 50px;
+			height: 50px;
+			background-color:red;
+			display: inline-block;
+			margin: 0px 0px;
+			margin-bottom: -4px;
+		}
+	</style>
+	<input type="text" id="input">
+	<button onclick="go()">Go</button>
+	<div id="board"></div>
+	<script>
+		function go() {
+			var value = document.getElementById("input").value;
+			var board = value.split("x");
+			var w=0,h=0,color=1;
+			var element = document.getElementById("board");
+			for (var i = 0; i < board.length; i++) {
+				if (i==0) {
+					w=board[i];
+				}
+				if (i==1) {
+					h=board[i];
+				}
+
+			}
+			var c = w;
+			for (;0 < h; h--) {
+				w = c;
+				for (;0 < w; w--) {
+					var elem = document.createElement("p");	
+					element.appendChild(elem);
+					
+					if (color==2) {
+						elem.style.backgroundColor = "blue";
+						color=0;
+					}
+					color++;
+					
+				}
+
+				if (c/2 == Math.trunc(c/2)) {
+					plus : {
+						if (color==1) {
+							color++;
+							break plus;
+						}
+						if (color==2) {
+							color--;
+							break plus;
+						}
+					}
+					
+				}
+
+
+
+				var Br = document.createElement("br");
+				element.appendChild(Br);
+
+			}
+
+		}
+	</script>
+</body>
+</html>

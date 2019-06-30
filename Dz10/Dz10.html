@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="value">
+	<button onclick="go()">go</button>
+	<div id="sum"></div>
+	<script>
+		function go() {
+			var value = document.getElementById("value").value;
+			var numbers = value.split("");
+				sum = 0;
+			
+			for (var i = 0; i < numbers.length; i++) {
+				sum += Number(numbers[i]);
+			}
+			document.getElementById("sum").innerHTML = sum;
+		}
+	</script>
+	
+</body>
+</html>
